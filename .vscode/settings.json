@@ -4,5 +4,9 @@
   },
   "editor.formatOnSave": true,
   "prettier.singleQuote": true,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.trailingComma": "all",
+  "prettier.arrowParens": "avoid",
+  "prettier.jsxSingleQuote": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
