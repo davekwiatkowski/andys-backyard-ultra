@@ -1,3 +1,30 @@
 @tailwind base;
+@layer base {
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl font-bold;
+  }
+  h3 {
+    @apply text-lg font-bold;
+  }
+  h4 {
+    @apply font-bold;
+  }
+  h5 {
+    @apply text-sm font-bold;
+  }
+  h6 {
+    @apply text-xs font-bold;
+  }
+  a {
+    @apply pt-1 pb-1 pl-2 pr-2 border border-black hover:bg-black hover:text-white;
+  }
+  p {
+    @apply mb-2 min-h-[16px];
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
