@@ -18,11 +18,14 @@
   h6 {
     @apply text-xs font-bold;
   }
-  a {
-    @apply pt-1 pb-1 pl-2 pr-2 border border-black hover:bg-black hover:text-white;
-  }
   p {
     @apply mb-2 min-h-[16px];
+  }
+  html {
+    @apply bg-red-50;
+  }
+  .block-content a {
+    @apply border border-black pt-1 pb-1 pl-2 pr-2 hover:bg-black  hover:text-white;
   }
 }
 

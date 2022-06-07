@@ -33,14 +33,15 @@ const Page: FC = () => {
   if (!pageData) return <div>Loading...</div>;
 
   return (
-    <div className='flex flex-row flex-wrap max-w-full gap-4'>
+    <div className='flex max-w-full flex-row flex-wrap gap-4'>
       <img
         src={urlFor(pageData.mainImage).width(500).url()}
-        className='object-cover h-fit'
+        className='h-fit object-cover'
         alt='Field with tents at the event'
       />
-      <div className='max-w-lg pt-8 pb-8 pl-4 border-l border-rose-200 xl:max-w-2xl'>
+      <div className='max-w-lg pb-8 xl:max-w-2xl'>
         <BlockContent
+          className='block-content'
           blocks={pageData.content}
           projectId={sanityConfig.projectId}
           dataset={sanityConfig.dataset}
