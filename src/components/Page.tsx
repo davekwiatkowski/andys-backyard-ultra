@@ -1,16 +1,10 @@
 import { FC, useMemo } from 'react';
-import imageUrlBuilder from '@sanity/image-url';
 import sanityClient from '../sanityClient';
 import { useParams } from 'react-router-dom';
 import BlockContent from '@sanity/block-content-to-react';
 import useSanityFetch from '../util/useSanityFetch';
 import LoadingSignal from './LoadingSignal';
-
-const builder = imageUrlBuilder(sanityClient);
-
-function urlFor(source: string) {
-  return builder.image(source);
-}
+import getUrlFor from '../util/getUrlFor';
 
 const Page: FC = () => {
   const { slug } = useParams();
@@ -35,13 +29,12 @@ const Page: FC = () => {
       {pageData ? (
         <>
           <img
-            src={urlFor(pageData.mainImage).width(500).url()}
+            src={getUrlFor(pageData.mainImage).width(500).url()}
             className='object-cover h-fit'
             alt='Field with tents at the event'
           />
-          <div className='max-w-lg pb-8 xl:max-w-2xl'>
+          <div className='max-w-lg pb-8 block-content xl:max-w-2xl'>
             <BlockContent
-              className='block-content'
               blocks={pageData.content}
               projectId={sanityConfig.projectId}
               dataset={sanityConfig.dataset}

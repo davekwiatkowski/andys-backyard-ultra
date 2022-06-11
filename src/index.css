@@ -1,13 +1,13 @@
 @tailwind base;
 @layer base {
   h1 {
-    @apply text-2xl font-bold;
+    @apply mb-2 text-2xl font-bold;
   }
   h2 {
-    @apply text-xl font-bold;
+    @apply mb-2 text-xl font-bold;
   }
   h3 {
-    @apply text-lg font-bold;
+    @apply mb-2 text-lg font-bold;
   }
   h4 {
     @apply font-bold;
@@ -25,7 +25,16 @@
     @apply bg-red-50;
   }
   .block-content a {
-    @apply border border-black pt-1 pb-1 pl-2 pr-2 hover:bg-black  hover:text-white;
+    @apply pt-1 pb-1 pl-2 pr-2 border border-black hover:bg-black hover:text-white;
+  }
+  ul {
+    @apply pb-2 list-disc;
+  }
+  ol {
+    @apply pb-2 list-decimal;
+  }
+  li {
+    @apply mb-2 ml-4;
   }
 }
 

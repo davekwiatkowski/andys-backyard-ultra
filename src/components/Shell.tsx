@@ -60,28 +60,30 @@ const Shell: FC<{ children?: ReactNode }> = ({ children }) => {
           } md:visible md:flex md:w-auto md:items-center`}>
           <div className='md:flex-grow'>
             {allPagesData ? (
-              allPagesData.map((page: any) => (
-                <Link
-                  onClick={() => {
-                    setIsExpanded(false);
-                  }}
-                  className={`mt-4 mr-4 block text-gray-500 hover:text-black md:mt-0 md:inline-block ${
-                    currentPath === page.slug.current
-                      ? 'underline'
-                      : 'no-underline'
-                  }`}
-                  to={`/${page.slug.current}`}
-                  key={page.slug.current}>
-                  {page.title}
-                </Link>
-              ))
+              allPagesData
+                .sort((a: any, b: any) => a.title.localeCompare(b.title))
+                .map((page: any) => (
+                  <Link
+                    onClick={() => {
+                      setIsExpanded(false);
+                    }}
+                    className={`mt-4 mr-4 block text-gray-500 hover:text-black md:mt-0 md:inline-block ${
+                      currentPath === page.slug.current
+                        ? 'underline'
+                        : 'no-underline'
+                    }`}
+                    to={`/${page.slug.current}`}
+                    key={page.slug.current}>
+                    {page.title}
+                  </Link>
+                ))
             ) : (
               <LoadingSignal />
             )}
           </div>
         </div>
       </nav>
-      <div className='absolute top-[72px] h-fit min-h-screen w-full p-8 xl:p-14'>
+      <div className='absolute top-[72px] h-fit w-full p-8 xl:p-14'>
         {children}
       </div>
     </div>
