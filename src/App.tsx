@@ -1,6 +1,5 @@
 import { FC, StrictMode } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import LandingPage from './components/LandingPage';
 import Page from './components/Page';
 import Shell from './components/Shell';
 
@@ -10,7 +9,7 @@ const App: FC = () => {
       <HashRouter>
         <Shell>
           <Routes>
-            <Route path='/' element={<LandingPage />} />
+            <Route path='/' element={<Page isLandingPage />} />
             <Route path='/:slug' element={<Page />} />
           </Routes>
         </Shell>

@@ -11,17 +11,24 @@ const page = {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'isLandingPage',
+      title: 'Is landing page?',
+      type: 'boolean',
+      description: 'Is this the landing page? There should be only one!',
+      hidden: ({ parent, value }) => !value && parent?.slug,
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       description:
-        'This is the path to the page: "andysbackyardultra.com/<slug>" -- Ideally, it is similar to the title!',
+        'This is the path to the page: "andysbackyardultra.com/#/<slug>" -- Ideally, it is similar to the title!',
       options: {
         source: 'title',
         slugify: input =>
           input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
-      validation: Rule => Rule.required(),
+      hidden: ({ parent, value }) => !value && parent?.isLandingPage,
     },
     {
       name: 'mainImage',

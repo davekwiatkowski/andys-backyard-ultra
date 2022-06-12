@@ -1,16 +1,18 @@
 import { FC, useMemo } from 'react';
-import sanityClient from '../sanityClient';
+import sanityClient from '../constants/sanityClient';
 import { useParams } from 'react-router-dom';
 import BlockContent from '@sanity/block-content-to-react';
 import useSanityFetch from '../util/useSanityFetch';
 import LoadingSignal from './LoadingSignal';
 import getUrlFor from '../util/getUrlFor';
 
-const Page: FC = () => {
+const Page: FC<{ isLandingPage?: boolean }> = ({ isLandingPage }) => {
   const { slug } = useParams();
   const sanityConfig = useMemo(() => sanityClient.config(), []);
   const pageData = useSanityFetch(
-    `*[_type == "page" && slug.current == $slug]{
+    `*[_type == "page" && ${
+      isLandingPage ? 'isLandingPage == true' : 'slug.current == $slug'
+    }]{
       title,
       slug,
       mainImage {
@@ -21,7 +23,13 @@ const Page: FC = () => {
       },
       content
     }`,
-    { params: { slug }, isOneResult: true },
+    {
+      params: {
+        ...(slug ? { slug } : {}),
+        ...(isLandingPage ? { isLandingPage } : {}),
+      },
+      isOneResult: true,
+    },
   );
 
   return (

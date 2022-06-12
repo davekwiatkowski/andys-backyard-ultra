@@ -1,4 +1,4 @@
-import { sanityImageUrlBuilder } from '../constants/sanityConstants';
+import sanityImageUrlBuilder from '../constants/sanityImageUrlBuilder';
 
 const getUrlFor = (sanitySource: string) => {
   return sanityImageUrlBuilder.image(sanitySource);

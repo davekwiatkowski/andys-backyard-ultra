@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import useSWR from 'swr';
-import sanityClient from '../sanityClient';
+import sanityClient from '../constants/sanityClient';
 
 const useSanityFetch = (
   query: string,
