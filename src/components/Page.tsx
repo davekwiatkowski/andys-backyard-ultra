@@ -33,14 +33,14 @@ const Page: FC<{ isLandingPage?: boolean }> = ({ isLandingPage }) => {
   );
 
   return (
-    <div>
-      {pageData ? (
-        <div className='flex flex-row justify-center w-full px-8 align-middle'>
-          <div className='w-full max-w-[1080px]'>
+    <div className='flex flex-row justify-center w-full px-8 align-middle'>
+      <div className='w-full max-w-[1080px]'>
+        {pageData ? (
+          <>
             <div className='relative'>
               <img
                 src={getUrlFor(pageData.mainImage).width(1080).url()}
-                className='h-[600px] w-full max-w-[1080px] object-cover'
+                className='h-[300px] w-full max-w-[1080px] object-cover md:h-[600px]'
                 alt={pageData.title}
               />
               <h1 className='absolute left-0 mb-0 mr-8 text-5xl italic border-b-8 bottom-8 border-red-50 font-extralight text-red-50 md:mr-16'>
@@ -53,11 +53,11 @@ const Page: FC<{ isLandingPage?: boolean }> = ({ isLandingPage }) => {
               projectId={sanityConfig.projectId}
               dataset={sanityConfig.dataset}
             />
-          </div>
-        </div>
-      ) : (
-        <LoadingSignal />
-      )}
+          </>
+        ) : (
+          <LoadingSignal className='pt-2' />
+        )}
+      </div>
     </div>
   );
 };
