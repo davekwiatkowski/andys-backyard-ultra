@@ -39,7 +39,7 @@ const Page: FC<{ isLandingPage?: boolean }> = ({ isLandingPage }) => {
           <img
             src={getUrlFor(pageData.mainImage).width(500).url()}
             className='object-cover h-fit'
-            alt='Field with tents at the event'
+            alt={pageData.title}
           />
           <div className='max-w-lg pb-8 block-content xl:max-w-2xl'>
             <BlockContent

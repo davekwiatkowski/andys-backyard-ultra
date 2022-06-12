@@ -79,7 +79,7 @@ const Shell: FC<{ children?: ReactNode }> = ({ children }) => {
                           : 'no-underline'
                       }`}
                       to={`/${page.slug.current}`}
-                      key={page.slug?.current}>
+                      key={page.slug.current}>
                       {page.title}
                     </Link>
                   ))}
