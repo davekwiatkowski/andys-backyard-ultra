@@ -24,8 +24,14 @@
   html {
     @apply bg-red-50;
   }
+  html * {
+    @apply transition-all duration-200 ease-in-out;
+  }
   .block-content a {
     @apply pt-1 pb-1 pl-2 pr-2 border border-black hover:bg-black hover:text-white;
+  }
+  .block-content p {
+    @apply max-w-2xl;
   }
   ul {
     @apply pb-2 list-disc;

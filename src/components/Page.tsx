@@ -33,22 +33,28 @@ const Page: FC<{ isLandingPage?: boolean }> = ({ isLandingPage }) => {
   );
 
   return (
-    <div className='flex flex-row flex-wrap max-w-full gap-4'>
+    <div>
       {pageData ? (
-        <>
-          <img
-            src={getUrlFor(pageData.mainImage).width(500).url()}
-            className='object-cover h-fit'
-            alt={pageData.title}
-          />
-          <div className='max-w-lg pb-8 block-content xl:max-w-2xl'>
+        <div className='flex flex-row justify-center w-full px-8 align-middle'>
+          <div className='w-full max-w-[1080px]'>
+            <div className='relative'>
+              <img
+                src={getUrlFor(pageData.mainImage).width(1080).url()}
+                className='h-[600px] w-full max-w-[1080px] object-cover'
+                alt={pageData.title}
+              />
+              <h1 className='absolute left-0 mb-0 mr-8 text-5xl italic border-b-8 bottom-8 border-red-50 font-extralight text-red-50 md:mr-16'>
+                {pageData.title}
+              </h1>
+            </div>
             <BlockContent
+              className='max-w-full pt-8 pb-8 block-content'
               blocks={pageData.content}
               projectId={sanityConfig.projectId}
               dataset={sanityConfig.dataset}
             />
           </div>
-        </>
+        </div>
       ) : (
         <LoadingSignal />
       )}

@@ -21,15 +21,15 @@ const Shell: FC<{ children?: ReactNode }> = ({ children }) => {
   return (
     <div className='font-serif'>
       <nav
-        className={`fixed z-50 flex min-h-[72px] w-full flex-wrap items-center justify-between p-6 md:bg-red-50 md:shadow-sm ${
+        className={`fixed top-0 left-0 z-50 flex min-h-[72px] w-full justify-center p-6 px-8 align-middle md:bg-red-50 md:shadow-sm ${
           isExpanded ? 'bg-red-100 shadow-lg' : 'bg-red-50 shadow-sm'
         }`}>
         {allPagesData ? (
-          <>
+          <div className='flex w-full max-w-[1080px] flex-row flex-wrap justify-between'>
             <div className='flex items-center flex-shrink-0 mr-6'>
               <Link
                 to='/'
-                className='text-xl font-semibold tracking-tight'
+                className='text-base font-semibold tracking-tight sm:text-xl'
                 onClick={() => {
                   setIsExpanded(false);
                 }}>
@@ -39,7 +39,7 @@ const Shell: FC<{ children?: ReactNode }> = ({ children }) => {
                 }
               </Link>
               {currentPath && (
-                <span className='text-xs italic text-gray-500 capitalize md:hidden'>
+                <span className='text-xs italic text-gray-500 capitalize sm:text-sm md:hidden'>
                   <span className='pl-2 pr-2'>{'>'}</span>
                   <span>{currentPath}</span>
                 </span>
@@ -85,14 +85,12 @@ const Shell: FC<{ children?: ReactNode }> = ({ children }) => {
                   ))}
               </div>
             </div>
-          </>
+          </div>
         ) : (
           <LoadingSignal />
         )}
       </nav>
-      <div className='absolute top-[72px] h-fit w-full p-8 xl:p-14'>
-        {children}
-      </div>
+      <div className='absolute top-[72px] h-fit w-full'>{children}</div>
     </div>
   );
 };
